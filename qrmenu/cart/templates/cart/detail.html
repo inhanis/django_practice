@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Izbrannie
+{% endblock %}
+
+{% block content %}
+<h1>Cart</h1>
+<div class="container">
+<table class="table table-image ">
+	<thead>
+		<tr>
+			<th scope="col">Image</th>
+			<th scope="col">Product</th>
+			<th scope="col">Quantity</th>
+			<th scope="col">Remove</th>
+			<th scope="col">Unit Price</th>
+			<th scope="col">Price</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for item in cart %}
+	{% with meal=item.meal %}
+	<tr>
+		<td class="w-25"><a href="#"><img src="{% if meal.image %}{{ meal.image.url }}{% else %}{% static 'img/no_img.png' %}{% endif %}" class="img-fluid img-thumbnail" alt=""></a>
+		</td>
+		<td>{{ meal.name }}</td>
+		<td>
+			<form action="{% url 'cart:cart_add' meal.id %}" method="post">
+				{{ item.update_quantity_form.quantity }}
+				{{ item.update_quantity_form.override }}
+				<input type="submit" value="Update">
+				{% csrf_token %}
+			</form>
+		</td>
+		<td>
+			<form action="{% url 'cart:cart_remove' meal.id %}" method="post">
+				<input type="submit" class="button" value="Remove">
+				{% csrf_token %}
+			</form>
+		</td>
+		<td class="num">{{ item.price }} UZS</td>
+		<td class="num">{{ item.total_price }} UZS</td>
+	</tr>
+	{% endwith %}
+	{% endfor %}
+	<tr class="total">
+		<td>Total</td>
+		<td colspan="4"></td>
+		<td class="num">{{ cart.get_total_price }}</td>
+	</tr>
+	</tbody>
+</table>
+</div>
+<p class="tex-right">
+	<a href="javascript:history.back()" class="button-light">Continue Shopping</a>
+</p>
+{% endblock %}

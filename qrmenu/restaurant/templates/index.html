@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'restaurant:index' %}">
+        <img src="{% static 'no_logo.png' %}" alt="" width="40" height="40">
+      </a>
+      <a class="navbar-brand" href="{% url 'restaurant:index' %}">QR Menu</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample07">
+      	<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Partnership</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">More</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content%}
+<div class="container">
+	<br>
+	<h1>QR MENU</h1>
+	<h2>Digital Menu</h2>
+</div>
+
+<div class="container marketing">
+  <div class="container">
+<hr class="featurette-divider">
+<div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+        <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing, elit. Ipsa, nihil ipsum ratione. Quibusdam ullam, modi, suscipit cupiditate nam vero hic ducimus, aspernatur cum voluptatem dolor obcaecati exercitationem nisi numquam voluptatibus enim eveniet dolores sed, illum praesentium nesciunt officia ab eum velit? Consequatur odit quasi, similique nam expedita vitae. Veritatis, laboriosam.</p>
+      </div>
+      <div class="col-md-5">
+        
+
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+    </div>
+
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+
+  <div class="container">
+    <h2>Our Partners</h2>
+  </div>
+<div class="container">
+<div class="row">
+      <div class="col-lg-4 sm-1">
+        <div class="container">
+        <img src="{% static 'logos/kfc.png' %}" width="140" height="140"alt="">
+        <h2>KFC</h2>
+        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+        </div>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <div class="container">
+        <img src="{% static 'logos/bellissimo.png' %}" width="140" height="140"alt="">
+        <h2>Bellissimo</h2>
+        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+        </div>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <div class="container">
+        <img src="{% static 'logos/evos.png' %}" width="140" height="140"alt="">
+        <h2>Evos</h2>
+        <p>And lastly this, the third column of representative placeholder content.</p>
+      </div>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+    </div>
+</div>
+
+
+{% endblock %}

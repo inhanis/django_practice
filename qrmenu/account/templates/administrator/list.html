@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="container">
+		<br>
+		<table class="table table-hover">
+			<thead>
+   				<tr>
+      				<th scope="col">#</th>
+      				<th scope="col">Name</th>
+      				<th scope="col">Category</th>
+     				<th scope="col">Price</th>
+
+    			</tr>
+  			</thead>
+  			<tbody>
+  				{% for meal in meals %}
+    			<tr>
+	      			<th scope="row">{{ forloop.counter }}</th>
+    	  			<td>{{ meal.name }}</td>
+      				<td>{{ meal.category }}</td>
+      				<td>{{ meal.price }} UZS</td>
+      				<td><a href="{% url 'update' meal.id %}">Update</a></td>
+      				<td><a href="{% url 'delete' meal.id %}">Delete</a></td>
+    			</tr>
+    			{% endfor %}
+  			</tbody>
+		</table>
+	</div>
+	<form action="" method="post" enctype="multipart/form-data">
+		{{ form.as_p }}
+		{% csrf_token %}
+		<input type="submit" value="Submit" class="btn btn-success">
+	</form>
+
+{% endblock %}
